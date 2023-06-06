@@ -140,10 +140,10 @@ MSG
           Thread.main['RACK_TIMEOUT_COUNT'] += 1
 
           if Thread.main['RACK_TIMEOUT_COUNT'] >= @term_on_timeout
-            message << ", sending SIGTERM to process #{Process.pid}"
-            Process.kill("SIGTERM", Process.pid)
+            message << ", sending SIGQUIT to process #{Process.pid}"
+            Process.kill("SIGQUIT", Process.pid)
           else
-            message << ", #{Thread.main['RACK_TIMEOUT_COUNT']}/#{term_on_timeout} timeouts allowed before SIGTERM for process #{Process.pid}"
+            message << ", #{Thread.main['RACK_TIMEOUT_COUNT']}/#{term_on_timeout} timeouts allowed before SIGQUIT for process #{Process.pid}"
           end
         end
 
